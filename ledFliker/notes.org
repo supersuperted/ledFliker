@@ -1,0 +1,31 @@
+#+title: Notes led flicker
+
+i have a esp32 c3 from seed wich will run from a battery and charge and some led letters
+
+* tasks
+** phisical
+*** set up esp with battery.. no sense so need a voltage devider
+*** wire leds with resistors
+** software
+*** battery charging and monertering
+*** button on off and other functions longpress shortpress
+*** programm different patterns
+**** blink
+#+begin_src c++
+int ledPin = 10;
+byte flicker[] = {180, 30, 89, 23, 255, 200, 90, 150, 60, 230, 180, 45, 90};
+
+void setup()
+{
+pinMode(ledPin, OUTPUT);
+}
+
+void loop()
+{
+for(int i=0; i,7; i++)
+{
+analogWrite(ledPin, flicker[i]);
+delay(2000);
+}
+}
+#+end_src
